@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partial/header.ejs')%>
+    <title>Blog4U</title>
+  </head>
+  <body>
+    <%-include('./partial/navbar')%>
+    <div class="container mt-4">
+      <form action="/user/signup" method="POST">
+        <div class="mb-3">
+          <label for="fullname" class="form-label"
+            >Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="fullname"
+            name="fullname"
+            aria-describedby="fullname"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            aria-describedby="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+          />
+        </div>  
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <%-include('./partial/script.ejs')%>
+  </body>
+</html>
