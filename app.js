@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const userroute = require("./routes/user");
+const editroute = require('./routes/edit')
 const PORT = process.env.PORT;
 const path = require("path");
 const mongo = require("mongoose");
@@ -20,6 +21,9 @@ app.use(cookieParser());
 app.use(checkauth("token"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve("./public")));
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 
 //routes
 app.get("/", async (req, res) => {
@@ -31,6 +35,7 @@ app.get("/", async (req, res) => {
 });
 app.use("/user", userroute);
 app.use("/blog", blogroute);
+app.use("/edit",editroute)
 
 app.listen(PORT, () => {
   console.log(`Server Listening on ${PORT}`);

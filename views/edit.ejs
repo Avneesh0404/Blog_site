@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partial/header.ejs')%>
+    <title>Blog4U</title>
+  </head>
+  <body>
+    <%- include('./partial/navbar.ejs')%> <% if (deleted === 'true') { %>
+    <div class="alert alert-success" role="alert">
+      Blog Deleted Successfully
+    </div>
+    <% } %>
+    <div class="container mt-4">
+      <h3>Your Blogs</h3>
+      <div class="row">
+        <% blog.forEach(blog => { %>
+        <div class="col">
+          <div class="card mt-4" style="width: 18rem">
+            <img src="<%= blog.coverimg %>" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+              <a href="/edit/edit/<%= blog._id %>" class="btn btn-primary"
+                >Edit</a
+              >
+              <form
+                action="/edit/delete/<%= blog._id %>?_method=DELETE"
+                method="POST"
+                onsubmit="return confirm('Are you sure you want to delete this post?');"
+                class="d-inline"
+              >
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <%-include('./partial/script.ejs')%>
+  </body>
+</html>
