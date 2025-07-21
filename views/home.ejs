@@ -7,15 +7,19 @@
   <body>
     <%- include('./partial/navbar.ejs')%>
     <div class="container mt-4">
-      <% blog.forEach(blog => { %>
-      <div class="card" style="width: 18rem">
-        <img src="<%= blog.coverimg %>" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title"><%= blog.title %></h5>
-          <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+      <div class="row">
+        <% blog.forEach(blog => { %>
+        <div class="col">
+          <div class="card mt-4" style="width: 18rem">
+            <img src="<%= blog.coverimg %>" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
         </div>
+        <% }) %>
       </div>
-      <% }) %>
     </div>
     <%-include('./partial/script.ejs')%>
   </body>
