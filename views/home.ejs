@@ -8,7 +8,7 @@
     <%- include('./partial/navbar.ejs')%>
     <div class="container mt-4">
       <div class="row">
-        <% blog.forEach(blog => { %>
+        <% if (blog && blog.length > 0) { %> <% blog.forEach((blog) => { %>
         <div class="col">
           <div class="card mt-4" style="width: 18rem">
             <img src="<%= blog.coverimg %>" class="card-img-top" alt="..." />
@@ -18,7 +18,20 @@
             </div>
           </div>
         </div>
-        <% }) %>
+        <% }) %> <% } else { %>
+        <div class="col-12 text-center mt-5">
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">No blogs found!</h4>
+            <p class="mb-0">
+              Start writing now to share your thoughts with the world.
+            </p>
+            <hr />
+            <a href="/user/signin" class="btn btn-primary"
+              >Create Your First Blog</a
+            >
+          </div>
+        </div>
+        <% } %>
       </div>
     </div>
     <%-include('./partial/script.ejs')%>
