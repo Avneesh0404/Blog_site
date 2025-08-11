@@ -5,10 +5,7 @@ A secure, full-featured **server-side rendered blog website** built using **Node
 ## 🔍 Key Features
 - 📝 Create, Edit, Delete blog posts
 - 🧑‍💻 User Registration and Login
-- 📄 View individual blog details
 - 🎨 Responsive UI using **Bootstrap 5**
-- 🧭 Navigation bar, flash messages, and clean page layout
-- ❗ Form validation and basic error handling
 - ⚡ Optimized frontend performance to achieve a perfect 100/100 PageSpeed score on desktop using efficient asset loading and minimal blocking time.
 - 🎯 Achieved sub-0.5s load times across all major rendering metrics including FCP, LCP, and Speed Index, ensuring a fast and responsive user experience.
 - 🔒 Implemented accessibility and best practices that scored a perfect 100/100, reflecting strong attention to inclusive and secure design standards.
